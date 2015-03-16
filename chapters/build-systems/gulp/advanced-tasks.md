@@ -90,12 +90,12 @@ gulp.task('browser-sync', function () {
 
 ### 4. Add Reload To Our Watch Tasks
 
-After you have started the BrowserSync server, you simply need to tell Gulp when BrowserSync should refresh the page. To do so, simply add the BrowserSync module to the tasks array and execute its reload method.
+After you have started the BrowserSync server, you simply need to tell Gulp when BrowserSync should refresh the page. To do so, add the BrowserSync module to the tasks dependencies and execute its reload method. Finally change the `.parallel` method to the `.series` method to ensure the page reloads after your tasks have completed.
 
 ```js
 gulp.task('watch', function () {
-    gulp.watch('./src/js/*.js', ['scripts', browserSync.reload]);
-    gulp.watch('./src/css/*.css', ['styles', browserSync.reload]);
+    gulp.watch('./src/js/*.js', gulp.series('scripts', browserSync.reload));
+    gulp.watch('./src/css/*.css', gulp.series('styles', browserSync.reload));
 });
 ```
 

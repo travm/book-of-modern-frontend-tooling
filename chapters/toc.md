@@ -42,6 +42,7 @@
   * Gulp
     * [Introduction](build-systems/gulp/introduction.md)
     * [Getting Started](build-systems/gulp/getting-started.md)
-    * [Writing Tasks](build-systems/gulp/writing-tasks.md)
+    * [Basic Tasks](build-systems/gulp/basic-tasks.md)
+    * [Advanced Tasks](build-systems/gulp/advanced-tasks.md)
     * [References](build-systems/gulp/references.md)
 

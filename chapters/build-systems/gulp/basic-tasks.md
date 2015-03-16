@@ -155,15 +155,15 @@ Watching your files saves you time by keeping you from having to revisit your co
 
 ```js
 gulp.task('watch', function() {
-    gulp.watch('src/js/*.js', ['scripts']);
-    gulp.watch('src/scss/*.scss', ['styles']);
+    gulp.watch('src/js/*.js', gulp.parallel('scripts'));
+    gulp.watch('src/scss/*.scss', gulp.parallel('styles'));
 });
 ```
 
 The default task is the task that runs when you input `gulp` in your command line tool without passing it a specific task name. This task simply references your other tasks including the watch task that you just created.
 
 ```js
-gulp.task('default', ['scripts', 'styles', 'watch']);
+gulp.task('default', gulp.parallel('scripts', 'styles', 'watch'));
 ```
 
 As you expand your gulpfile it is wise to revisit both the watch and the default tasks to include new tasks as you create them.
